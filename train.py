@@ -41,4 +41,5 @@ if __name__ == "__main__":
         labels = [args.label]
 
     for i in labels:
+        args.label = i
         main(args)
