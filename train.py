@@ -38,7 +38,7 @@ if __name__ == "__main__":
     if args.label == '*':
         labels = list(range(10))
     else:
-        labels = args.label
+        labels = [args.label]
 
     for i in labels:
         main(args)
