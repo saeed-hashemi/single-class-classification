@@ -13,7 +13,7 @@ def load_model(label=0):
     """
     loading the saved model
     """
-    model = torch.load(f"model/torch_model_class_{label}.pth")
+    model = torch.load(f"models/SCC_class_{label}.pth")
     model = model.cuda()
     model.eval()
     model = model.cuda()
