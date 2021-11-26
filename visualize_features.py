@@ -56,7 +56,7 @@ def extract_embeddings(model, dataloader):
         return None
 
     # Your model layer has a register_forward_hook that does the registering for you
-    model.backbone.layer4.register_forward_hook(hook)
+    model.backbone.layer4[0].conv2.register_forward_hook(hook)
 
     # Then you just loop through your dataloader to extract the embeddings
     embeddings = np.zeros(shape=(0, 512))
@@ -79,6 +79,10 @@ def dimentions_reduction(embeddings):
     tsne = TSNE(2, verbose=1)
     tsne_proj = tsne.fit_transform(embeddings)
     return tsne_proj
+    # pca = PCA(n_components=2)
+    # pca.fit(embeddings)
+    # P = pca.transform(embeddings)
+    # return P
 
 
 def plot_features(tsne_proj):
